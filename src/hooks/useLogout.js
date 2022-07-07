@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { proAuth } from '../firebase/config'
+import { proAuth, proFirestore } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useLogout = () => {
@@ -14,6 +14,8 @@ export const useLogout = () => {
 
     try {
       // sign the user out
+      const { uid } = proAuth.currentUser
+      await proFirestore.collection('users').doc(uid).update({ online: false })
       await proAuth.signOut()
       
       // dispatch logout action
