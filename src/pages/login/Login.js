@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLogin } from '../../hooks/useLogin'
 
-// CSS
+// styles
 import './Login.css'
 
 export default function Login() {

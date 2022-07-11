@@ -1,7 +1,8 @@
-// CSS
-import './Signup.css'
-import { useSignup } from '../../hooks/useSignup'
 import { useState } from 'react'
+import { useSignup } from '../../hooks/useSignup'
+
+// styles
+import './Signup.css'
 
 export default function Signup() {
   const [email, setEmail] = useState('')
@@ -10,7 +11,7 @@ export default function Signup() {
   const [thumbnail, setThumbnail] = useState(null)
   const [thumbnailError, setThumbnailError] = useState(null)
   const { signup, isPending, error } = useSignup()
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     signup(email, password, displayName, thumbnail)
@@ -20,17 +21,17 @@ export default function Signup() {
     setThumbnail(null)
     let selected = e.target.files[0]
     console.log(selected)
-    // INPUT FILE ERROR HANDLING
+
     if (!selected) {
-      setThumbnailError('Nie wybrałeś pliku')
+      setThumbnailError('Please select a file')
       return
     }
     if (!selected.type.includes('image')) {
-      setThumbnailError('Format pliku musi być jpg')
+      setThumbnailError('Selected file must be an image')
       return
     }
     if (selected.size > 100000) {
-      setThumbnailError('Maksymalny rozmiar pliku to 100kb')
+      setThumbnailError('Image file size must be less than 100kb')
       return
     }
     
@@ -76,8 +77,7 @@ export default function Signup() {
           type="file"
           onChange={handleFileChange}
         />
-        {/* Error message if necessary*/}
-        {thumbnailError && <div className="error">{thumbnailError}</div>} 
+        {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
       {!isPending && <button className="btn">Sign up</button>}
       {isPending && <button className="btn" disabled>loading</button>}

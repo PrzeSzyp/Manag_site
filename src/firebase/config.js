@@ -1,28 +1,26 @@
-import firebase from "firebase/app"
-import 'firebase/firestore' 
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB1MftpdSwYUTsBMv7iE-rdsiSzirS7srI",
-    authDomain: "managmentsite.firebaseapp.com",
-    projectId: "managmentsite",
-    storageBucket: "managmentsite.appspot.com",
-    messagingSenderId: "831789695429",
-    appId: "1:831789695429:web:159ba6a152596725e18bac"
-  };
+  apiKey: "AIzaSyBPXRsY-RHia0IRb_UYob8xq_MGdfEkGtw",
+  authDomain: "managsite-e2cc3.firebaseapp.com",
+  projectId: "managsite-e2cc3",
+  storageBucket: "managsite-e2cc3.appspot.com",
+  messagingSenderId: "670238543238",
+  appId: "1:670238543238:web:7e19596d854dd09808b007"
+};
 
-  // initalize app
-  firebase.initializeApp(firebaseConfig)
+// init firebase
+firebase.initializeApp(firebaseConfig)
 
-  // firebase services init
-  const proFirestore = firebase.firestore()
-  const proAuth = firebase.auth()
-  const proStorage = firebase.storage()
+// init services
+const projectFirestore = firebase.firestore()
+const projectAuth = firebase.auth()
+const projectStorage = firebase.storage()
 
-  // time
-  const timestamp = firebase.firestore.Timestamp
+// timestamp
+const timestamp = firebase.firestore.Timestamp
 
-  // exports
-
-  export {proFirestore, proAuth, proStorage, timestamp}
+export { projectFirestore, projectAuth, timestamp, projectStorage }
