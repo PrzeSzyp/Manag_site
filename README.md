@@ -1,1 +1,4 @@
-# Internet an Mobile Systems Design - project - Manag_site IN PROGRESS
+ Manag_site project IN PROGRESS
+ 
+ 1. npm install
+ 2. npm start
